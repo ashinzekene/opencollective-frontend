@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import themeGet from '@styled-system/theme-get';
 
 import StyledButton from './StyledButton';
 import Container from './Container';
@@ -13,8 +14,11 @@ const StyledButtonItem = styled(StyledButton)`
   border-radius: 0;
   line-height: 1.5;
   flex-grow: 1;
+  border-color: ${themeGet('colors.black.200')};
+
   &:active p {
     color: white;
+    border-color: ${themeGet('colors.red.500')};
   }
   &:hover,
   &:focus {
@@ -56,9 +60,10 @@ const StyledButtonSet = ({
     {items.map(item => (
       <StyledButtonItem
         combo={combo || undefined}
+        color={item === selected ? 'white' : 'black.transparent.40'}
         key={item}
         buttonSize={size}
-        buttonStyle={item === selected ? 'primary' : 'standard'}
+        buttonStyle={item === selected ? 'primary' : undefined}
         onClick={onChange && (() => onChange(item))}
         className={item === selected ? 'selected' : undefined}
         disabled={disabled}

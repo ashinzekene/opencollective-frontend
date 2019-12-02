@@ -30,7 +30,7 @@ const InputContainer = styled(Container)`
 
 const getColor = ({ error, focused, success }) => {
   if (focused) {
-    return 'primary.300';
+    return 'black.800';
   }
 
   if (error) {
@@ -41,12 +41,12 @@ const getColor = ({ error, focused, success }) => {
     return 'green.300';
   }
 
-  return 'black.400';
+  return 'black.transparent.40';
 };
 
 const getBgColor = ({ error, focused, success }) => {
   if (focused) {
-    return 'primary.100';
+    return 'white.full';
   }
 
   if (error) {
@@ -57,7 +57,7 @@ const getBgColor = ({ error, focused, success }) => {
     return 'green.100';
   }
 
-  return 'black.50';
+  return 'white.transparent.72';
 };
 
 const getBorderColor = ({ error, focused, success }) => {
@@ -73,7 +73,7 @@ const getBorderColor = ({ error, focused, success }) => {
     return 'green.300';
   }
 
-  return 'black.300';
+  return 'black.200';
 };
 
 /**
@@ -115,14 +115,14 @@ const StyledInputGroup = ({
             pr={2}
             color={getColor({ error, focused, success })}
             {...prependProps}
-            bg={(disabled && 'black.50') || get(prependProps, 'bg') || getBgColor({ error, focused, success })}
+            bg={(disabled && 'black.50') || getBgColor({ error, focused, success }) || get(prependProps, 'bg')}
           >
             {prepend}
           </Container>
         )}
         <StyledInput
           bare
-          color="black.800"
+          color={getColor({ error, focused, success })}
           type="text"
           overflow="scroll"
           fontSize="Paragraph"
