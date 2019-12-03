@@ -14,11 +14,10 @@ const StyledButtonItem = styled(StyledButton)`
   border-radius: 0;
   line-height: 1.5;
   flex-grow: 1;
-  border-color: ${themeGet('colors.black.200')};
+  border-color: ${themeGet('colors.black.400')};
 
   &:active p {
     color: white;
-    border-color: ${themeGet('colors.red.500')};
   }
   &:hover,
   &:focus {
@@ -60,7 +59,7 @@ const StyledButtonSet = ({
     {items.map(item => (
       <StyledButtonItem
         combo={combo || undefined}
-        color={item === selected ? 'white' : 'black.transparent.40'}
+        color={item === selected ? 'white' : 'black.400'}
         key={item}
         buttonSize={size}
         buttonStyle={item === selected ? 'primary' : undefined}
